@@ -1,77 +1,107 @@
 * {
-    font-size: 10px;
-    margin: 0;
-    padding: 0;
+	font-size: 10px;
 }
 
-body {
-    background-color: rgb(0, 0, 0);
+.navbar-brand {
+	display: flex;
+	align-items: baseline;
 }
 
-.flex-container {
-    display: flex;
+.navbar-brand h1 {
+	font-family: "Oleo Script", cursive;	
+    font-size: 2.5rem;
 }
 
-.wrapper {
-    margin: 50px auto;
+.gradient {
+    background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
+
+.create-post {
+	background: green;
+	color: white;
+	margin-right: 10px;
+}
+
+.btn {
+	white-space: nowrap;
+    text-align: center;
     background-color: #fff;
-    width: 500px;
-    height: auto;
+    border-radius: 5px;
+    color: #000;
+    border-color: #7456D4;
 }
 
-.header {
-    flex-direction: row;
-    align-items: center;
-    padding: 15px;
-}
-
-.fa-instagram {
-    margin-right: 10px;
-}
-
-.fa-ellipsis-v {
-    margin-left: auto;
-}
-
-h1, h2, p, strong {
-    font-size: 1.7rem;
+.btn:hover {
+    background-color: #7456D4;
+    opacity: 0.8;
+    border-color: transparent;
 }
 
 img {
-    width: 100%;
-    height: auto;
+	width: 100%;
 }
 
-.icons {
-    align-items: center;
+.col-12 {
+	margin: 20px 0;
 }
 
-.content {
-    flex-direction: column;
-    padding: 15px;
+.card-header {
+	background-color: #fff;
+	display: flex;
+	align-items: center;
 }
 
-.icons {
-    padding-bottom: 15px;
+.card-footer {
+	background-color: #fff;
+	border: none;
 }
 
-.icon:hover .icon-on,
-.icon .icon-off {
-    display: none;
-}
-.icon:hover .icon-off {
-    display: inline;
+.card-date {
+	margin-left: auto;
 }
 
-.fa-comment, .fa-paper-plane {
-    margin-left: 10px;
+.fa-camera,
+.fa-map-marker-alt {
+	border: 1px solid lightgray;
+	padding: 5px;
+	border-radius: 5px;
+	margin-top: 10px;
 }
 
-.bookmark {
-    margin-left: auto;
+.fa-map-marker-alt {
+	margin-left: 5px;
 }
 
-.likes {
-    padding-bottom: 15px;
+.fa-cog {
+    color: #7456D4;
 }
 
+input.form-control {
+	border: none;
+}
+
+.input-group {
+	align-items: baseline;
+}
+
+
+@media screen and (max-width: 991px) {
+    .btn {
+        margin-left: auto;
+    }
+
+    #photo-view .col-sm {
+        margin: 10px 0;
+    }
+
+    #photo-view div.row {
+        margin: 0;
+        padding: 0;
+    }
+}
