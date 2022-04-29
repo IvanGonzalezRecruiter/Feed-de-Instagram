@@ -2,181 +2,448 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Feed 2</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Feed with Bootstrap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://kit.fontawesome.com/9bdc0109c5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- Navigation starts -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo -->
+            <span class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fab fa-instagram fa-2x mr-2 gradient"></i>
+                    <h1 class="gradient">Instagram</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </span>
 
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-light border">
-
-            <div class="imageninstagram">
-                <i class="fab fa-instagram fa-2x"></i>
+            <!-- Create a new post button -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline my-2 my-lg-0">
+                    <button type="button" class="create-post btn btn-outline-success my-2 mr-10 my-sm-0"
+                        data-toggle="modal" data-target="#createPostModal">
+                        Create a new post
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="createPostModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+                                            cols="100%"></textarea>
+                                        <i class="fas fa-camera"></i>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Cancel
+                                    </button>
+                                    <button type="button" class="btn btn-success">
+                                        Publish
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
 
-            <a class="navbar-brand text-secondary " href="/">Instagram</a>
+            <!-- Dropdown -->
+            <ul class="navbar-nav collapse navbar-collapse">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navigation ends -->
 
-            <form class="form-inline my-2 my-lg-0">
-                
+    <!-- Nav Pills | Photo view and Feed view buttons -->
+    <ul class="nav nav-pills my-3 justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active gradient" id="photo-view-tab" data-toggle="pill" href="#photo-view" role="tab"
+                aria-controls="photo-view" aria-selected="true"><i class="fas fa-th"></i></a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link gradient" id="feed-view-tab" data-toggle="pill" href="#feed-view" role="tab"
+                aria-controls="feed-view" aria-selected="false"><i class="fas fa-square"></i></a>
+        </li>
+    </ul>
 
-                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#exampleModalCenter">
-                    Crear un nurvo post
-                </button>
+    <div class="tab-content" id="pills-tabContent">
+        <!-- Start of grid -->
+        <div class="tab-pane fade show active" id="photo-view" role="tabpanel" aria-labelledby="photo-view-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <img src="https://picsum.photos/400/300" alt="" />
+                    </div>
+                    <div class="col-sm">
+                        <img src="https://picsum.photos/400/300" alt="" />
+                    </div>
+                    <div class="col-sm">
+                        <img src="https://picsum.photos/400/300" alt="" />
+                    </div>
+                </div>
 
-               
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
+                <div class="row">
+                    <div class="col-sm">
+                        <img src="https://picsum.photos/400/300" alt="" />
+                    </div>
+                    <div class="col-sm">
+                        <img src="https://picsum.photos/400/300" alt="" />
+                    </div>
+                    <div class="col-sm">
+                        <img src="https://picsum.photos/400/300" alt="" />
+                    </div>
+                </div>
 
-                            <div class="modal-body my-2 my-lg-0">
-                                <textarea class="form-control" id="message-text" cols="60"></textarea>
+                <div class="row">
+                    <div class="col-sm">
+                        <img src="https://picsum.photos/400/300" alt="" />
+                    </div>
+                    <div class="col-sm">
+                        <img src="https://picsum.photos/400/300" alt="" />
+                    </div>
+                    <div class="col-sm">
+                        <img src="https://picsum.photos/400/300" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start of feed -->
+        <div class="tab-pane fade" id="feed-view" role="tabpanel" aria-labelledby="feed-view-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
                             </div>
-
-                            <i class="fas fa-camera "></i>
-                            <i class="fas fa-map-marker-alt "></i>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light border-secondary"
-                                    data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-success">Publish</button>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
+                            </div>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
+                            </div>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
+                            </div>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
+                            </div>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
+                            </div>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
+                            </div>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
+                            </div>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
+                            </div>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="card" style="width: 50rem">
+                            <div class="card-header d-flex">
+                                <h5 class="card-title">My first photo</h5>
+                                <p class="card-date">12/14</p>
+                            </div>
+                            <img src="https://picsum.photos/400/300" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h6>23 likes</h6>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    Laborum, tempora.
+                                </p>
+                                <div class="card-footer d-flex align-items-baseline">
+                                    <i class="far fa-heart mr-2"></i>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Comment..."
+                                            aria-label="Comment" aria-describedby="button-addon2" />
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button" id="button-addon2">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button"
-                        class="btn btn-secondary dropdown-toggle bg-light text-secondary border-0"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-cog fa-1x "></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="#">Acción</a>
-                        <a class="dropdown-item" href="#">Otra acción</a>
-                        <a class="dropdown-item" href="#">Otra cosa aquí</a>
-                        <br><a class="dropdown-item border-top" href="#">Salir</a></b>
-                    </div>
-                </div>
-            </form>
-
-        </nav>
-    </div>
-
-
-
-    <div class="botonera">
-        <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-
-
-                <a class="btn btn-sm btn-outline-secondary" href="index.html" role="button"><i class="fas fa-list"></i></a>
-
-               
-
-
-            </form>
-        </nav>
-    </div>
-
-
-
-
-    <div class="card-group">
-
-        <div class="row">
-
-            <div class="card col-4">
-                <img class="card-img-top img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTksS5ZTRqfR3UHalpaC_akGKcgGsIEmuJ3eg&usqp=CAU" alt="Card image cap">
             </div>
-
-
-            <div class="card col-4">
-                <img class="card-img-top img-fluid" src="data:image/jpeg;base64,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"
-                    alt="Card image cap">
-            </div>
-
-            <div class="card col-4">
-                <img class="card-img-top img-fluid" src="https://cuarteldelmetal.com/wp-content/uploads/2020/07/metallica-1.jpg"
-                    alt="Card image cap">
-            </div>
-
         </div>
-
     </div>
-
-
-
-
-
-    <div class="card-group">
-
-        <div class="row">
-
-            <div class="card col-4">
-                <img class="card-img-top" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-907914534-1590070809.jpg">
-            </div>
-
-
-            <div class="card col-4">
-                <img class="card-img-top" src="data:image/jpeg;base64,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" alt="Card image cap">
-            </div>
-
-            <div class="card col-4">
-                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6HEf3NPavc-94jfMsi6RDcf7Mt6S4hQvx6Q&usqp=CAU" alt="Card image cap">
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-
-    <div class="card-group">
-
-        <div class="row">
-
-            <div class="card col-4">
-                <img class="card-img-top" src="https://thumbs.dreamstime.com/b/rainbow-sunset-blue-pink-sky-yellow-clouds-skyline-water-sea-reflection-beautiful-landscape-background-summer-nature-179354546.jpg" alt="Card image cap">
-            </div>
-
-
-            <div class="card col-4">
-                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRycjFI8YYVtj21QtAfsKlTWnVkFwx-kLVwag&usqp=CAU" alt="Card image cap">
-            </div>
-
-            <div class="card col-4">
-                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl3BpZzWRfzu7jfRPzK5GvP4d0WmDreCa1-Q&usqp=CAU" alt="Card image cap">
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
         crossorigin="anonymous"></script>
-
-
 </body>
 
 </html>
